@@ -3,7 +3,7 @@ Summary(pl):	Zestaw narzêdzi do obróbki baz danych typu .dbf
 Name:		libdbf
 Version:	1.5
 Release:	1
-Copyright:	non-commercial
+License:	non-commercial
 Group:		Applications/Databases
 Group(pl):	Aplikacje/Bazy danych
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
@@ -26,8 +26,7 @@ XBase, tworzyæ indeksy i wiele innych rzeczy...
 %patch -p0
 
 %build
-LDFLAGS="-s"; export LDFLAGS
-CFLAGS="$RPM_OPT_FLAGS" make 
+make CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -46,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%doc README.gz README.linux.gz
+%doc *.gz

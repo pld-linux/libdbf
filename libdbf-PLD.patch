@@ -1,0 +1,99 @@
+--- dbf_rec.c.orig	Mon Sep  6 11:13:32 1999
++++ dbf_rec.c	Fri Sep 16 15:30:15 1994
+@@ -58,7 +58,7 @@
+ 		rec_num = dbh->db_records;
+ 	}
+ 	if (rec_num > dbh->db_records) {
+-		return NULL;
++		return 0;
+ 	}
+ 	/* go to the correct spot on the file */
+ 	offset = dbh->db_hlen + (rec_num - 1) * dbh->db_rlen;
+--- dbfcreat.c.orig	Mon Sep  6 11:19:50 1999
++++ dbfcreat.c	Fri Sep 16 15:30:27 1994
+@@ -68,7 +68,7 @@
+ 
+ 	cp = (u_char *)malloc(256);
+ 	strcpy(cp, *argv);
+-	if (strchr(cp, ".dbf") == NULL)
++	if (strncmp(cp[strlen(cp)-4], ".dbf", 4) == 0)
+ 		strcat(cp, ".dbf");
+ 	if ((tfd = open(cp, OPEN_RDWR, 0644)) < 0) {
+ 		perror("open");
+--- README.orig	Fri Sep 16 15:30:14 1994
++++ README	Mon Sep  6 11:26:29 1999
+@@ -25,7 +25,7 @@
+ 
+ removes deleted records from the specified .dbf file
+ 
+-	tmpl
++	dbftmpl
+ 
+ builds the tmpl.dbf.  This .dbf file is the one that all others get built from
+ 
+diff -Naur ./Makefile ../libdbf-1.5-patched/Makefile
+--- ./Makefile	Fri Sep 16 15:42:12 1994
++++ ../libdbf-1.5-patched/Makefile	Sun Mar  5 21:41:07 2000
+@@ -13,8 +13,9 @@
+ # if you need to use bison uncomment the following
+ YACC=bison -y
+ 
+-CFLAGS=-O $(ALLOCA) $(EX_FLAGS)
++CFLAGS+=$(EX_FLAGS)
+ YFLAGS=-d
++LDFLAGS+=
+ 
+ SHELL=/bin/sh
+ 
+@@ -38,40 +39,40 @@
+ extras: tmpl.dbf
+ 
+ dbftst: dbftst.o $(DBF_OBJS)
+-	$(CC) -o $@ dbftst.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbftst.o $(DBF_OBJS)
+ 
+ dbflst: dbflst.o $(DBF_OBJS)
+-	$(CC) -o $@ dbflst.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbflst.o $(DBF_OBJS)
+ 
+ lexi: lex.yy.c
+-	$(CC) $(CFLAGS) -DDEBUG lex.yy.c -o $@ -lfl
++	$(CC) $(LDFLAGS) $(CFLAGS) -DDEBUG lex.yy.c -o $@ -lfl
+ 
+ gram: gram.tab.c lex.yy.c yyerr.o $(OBJS)
+-	$(CC) $(CFLAGS) -DYYDEBUG gram.tab.c lex.yy.c yyerr.o $(OBJS) -o $@ -lfl
++	$(CC) $(LDFLAGS) $(CFLAGS) -DYYDEBUG gram.tab.c lex.yy.c yyerr.o $(OBJS) -o $@ -lfl
+ 
+ tmpl.dbf: tmpl
+ 	./tmpl
+ 
+ tmpl: tmpl.o $(DBF_OBJS)
+-	$(CC) -o $@ tmpl.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ tmpl.o $(DBF_OBJS)
+ 
+ dbfadd: dbfadd.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfadd.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfadd.o $(DBF_OBJS)
+ 
+ dbfdel: dbfdel.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfdel.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfdel.o $(DBF_OBJS)
+ 
+ dbfpack: dbfpack.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfpack.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfpack.o $(DBF_OBJS)
+ 
+ dbfget: dbfget.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfget.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfget.o $(DBF_OBJS)
+ 
+ dbfcreat: dbfcreat.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfcreat.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfcreat.o $(DBF_OBJS)
+ 
+ dbfndx: dbfndx.o $(DBF_OBJS)
+-	$(CC) -o $@ dbfndx.o $(DBF_OBJS)
++	$(CC) $(LDFLAGS) -o $@ dbfndx.o $(DBF_OBJS)
+ 
+ lex.yy.c: token.l
+ 	lex token.l

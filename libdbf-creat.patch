@@ -1,0 +1,12 @@
+diff -urpN libdbf-1.5.pld/dbfcreat.c libdbf-1.5/dbfcreat.c
+--- libdbf-1.5.pld/dbfcreat.c	Tue Sep  3 14:00:21 2002
++++ libdbf-1.5/dbfcreat.c	Tue Sep  3 14:06:08 2002
+@@ -68,7 +68,7 @@ char	**argv;
+ 
+ 	cp = (u_char *)malloc(256);
+ 	strcpy(cp, *argv);
+-	if (strncmp(cp[strlen(cp)-4], ".dbf", 4) == 0)
++	if (strncmp(&cp[strlen(cp)-4], ".dbf", 4) != 0)
+ 		strcat(cp, ".dbf");
+ 	if ((tfd = open(cp, OPEN_RDWR, 0644)) < 0) {
+ 		perror("open");

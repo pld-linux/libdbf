@@ -1,0 +1,19 @@
+diff -urpN libdbf-1.5.pld/dbfcreat.c libdbf-1.5/dbfcreat.c
+--- libdbf-1.5.pld/dbfcreat.c	Tue Sep  3 15:28:31 2002
++++ libdbf-1.5/dbfcreat.c	Tue Sep  3 15:27:45 2002
+@@ -116,6 +116,7 @@ char	**argv;
+ 	tdbh->db_dbt = DBH_TYPE_NORMAL;
+ 	strcpy(tdbh->db_date, "19930818");
+ 	tdbh->db_records = 0;
++	tdbh->db_rlen = 1;
+ 
+ 	/* step thru the records */
+ 	tcp = (u_char *)malloc(256);
+@@ -138,6 +139,7 @@ char	**argv;
+ 		strncpy(tcp, &cp[cur_f->db_foffset], cur_f->db_flen);
+ 		tcp[cur_f->db_flen] = 0;
+ 		tcur_f->db_flen = strtol(tcp, (char *)NULL, 0);
++		tdbh->db_rlen += tcur_f->db_flen;
+ 		cur_f++;
+ 		strncpy(tcp, &cp[cur_f->db_foffset], cur_f->db_flen);
+ 		tcp[cur_f->db_flen] = 0;

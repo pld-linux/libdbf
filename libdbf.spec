@@ -6,6 +6,7 @@ Release:	4
 License:	non-commercial
 Group:		Applications/Databases
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
+# Source0-md5:	318f4f639421e0996e316f12d9f3862e
 Patch0:		%{name}-PLD.patch
 Patch1:		%{name}-creat.patch
 Patch2:		%{name}-rlen.patch

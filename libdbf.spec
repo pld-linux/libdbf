@@ -8,7 +8,7 @@ Group:		Applications/Databases
 Group(pl):	Aplikacje/Bazy danych
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
 Patch0:		%{name}-PLD.patch
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 libdbf is a set of tools to manipulate xbase files - using them you can

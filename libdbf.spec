@@ -11,15 +11,15 @@ Patch0:		%{name}-PLD.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libdbf is a set of tools to manipulate xbase files - using them you can
-list records from existing .dbf file, add and delete records, convert text
-database to XBase, create indexes and many more...
+libdbf is a set of tools to manipulate xbase files - using them you
+can list records from existing .dbf file, add and delete records,
+convert text database to XBase, create indexes and many more...
 
 %description -l pl
-libdbf to zestaw narzêdzi do obróbki baz danych w plikach .dbf - przy ich
-u¿yciu mo¿esz obejrzeæ spis rekordów pochodz±cych z istniej±cego pliku
-.dbf, dodawaæ i usuwaæ rekordy, zmieniæ tekstow± bazê danych na format
-XBase, tworzyæ indeksy i wiele innych rzeczy...
+libdbf to zestaw narzêdzi do obróbki baz danych w plikach .dbf - przy
+ich u¿yciu mo¿esz obejrzeæ spis rekordów pochodz±cych z istniej±cego
+pliku .dbf, dodawaæ i usuwaæ rekordy, zmieniæ tekstow± bazê danych na
+format XBase, tworzyæ indeksy i wiele innych rzeczy...
 
 %prep
 %setup -q

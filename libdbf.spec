@@ -5,7 +5,8 @@ Version:	1.5
 Release:	1
 License:	non-commercial
 Group:		Applications/Databases
-Group(pl):	Aplikacje/Bazy Danych
+Group(de):	Applikationen/Dateibanken
+Group(pl):	Aplikacje/Bazy danych
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
 Patch0:		%{name}-PLD.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,7 +27,7 @@ format XBase, tworzyæ indeksy i wiele innych rzeczy...
 %patch -p0
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
+%{__make} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

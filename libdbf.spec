@@ -2,11 +2,13 @@ Summary:	A set of tools to manipulate xbase files
 Summary(pl):	Zestaw narzêdzi do obróbki baz danych typu .dbf
 Name:		libdbf
 Version:	1.5
-Release:	3
+Release:	4
 License:	non-commercial
 Group:		Applications/Databases
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
 Patch0:		%{name}-PLD.patch
+Patch1:		%{name}-creat.patch
+Patch2:		%{name}-rlen.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,7 +24,9 @@ format XBase, tworzyæ indeksy i wiele innych rzeczy...
 
 %prep
 %setup -q
-%patch -p0
+%patch0 -p0
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"

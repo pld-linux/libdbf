@@ -2,7 +2,7 @@ Summary:	A set of tools to manipulate xbase files
 Summary(pl):	Zestaw narzêdzi do obróbki baz danych typu .dbf
 Name:		libdbf
 Version:	1.5
-Release:	2
+Release:	3
 License:	non-commercial
 Group:		Applications/Databases
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
@@ -35,12 +35,10 @@ install dbflst dbfget dbfadd dbfdel dbfndx dbfpack dbfcreat \
 	$RPM_BUILD_ROOT%{_bindir}
 install tmpl $RPM_BUILD_ROOT%{_bindir}/dbftmpl
 
-gzip -9nf README README.linux
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README README.linux
 %attr(755,root,root) %{_bindir}/*

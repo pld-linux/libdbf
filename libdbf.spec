@@ -5,7 +5,7 @@ Version:	1.5
 Release:	1
 License:	non-commercial
 Group:		Applications/Databases
-Group(pl):	Aplikacje/Bazy danych
+Group(pl):	Aplikacje/Bazy Danych
 Source0:	ftp://ftp.pwr.wroc.pl/pub/linux/libs/db/%{name}.tar.gz
 Patch0:		%{name}-PLD.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

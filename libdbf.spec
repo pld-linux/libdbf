@@ -30,7 +30,10 @@ format XBase, tworzyæ indeksy i wiele innych rzeczy...
 %patch2 -p1
 
 %build
-%{__make} CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
+%{__make} \
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT

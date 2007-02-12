@@ -1,5 +1,5 @@
 Summary:	A set of tools to manipulate xbase files
-Summary(pl):	Zestaw narzêdzi do obróbki baz danych typu .dbf
+Summary(pl.UTF-8):   Zestaw narzÄ™dzi do obrÃ³bki baz danych typu .dbf
 Name:		libdbf
 Version:	1.5
 Release:	4
@@ -17,11 +17,11 @@ libdbf is a set of tools to manipulate xbase files - using them you
 can list records from existing .dbf file, add and delete records,
 convert text database to XBase, create indexes and many more...
 
-%description -l pl
-libdbf to zestaw narzêdzi do obróbki baz danych w plikach .dbf - przy
-ich u¿yciu mo¿esz obejrzeæ spis rekordów pochodz±cych z istniej±cego
-pliku .dbf, dodawaæ i usuwaæ rekordy, zmieniæ tekstow± bazê danych na
-format XBase, tworzyæ indeksy i wiele innych rzeczy...
+%description -l pl.UTF-8
+libdbf to zestaw narzÄ™dzi do obrÃ³bki baz danych w plikach .dbf - przy
+ich uÅ¼yciu moÅ¼esz obejrzeÄ‡ spis rekordÃ³w pochodzÄ…cych z istniejÄ…cego
+pliku .dbf, dodawaÄ‡ i usuwaÄ‡ rekordy, zmieniÄ‡ tekstowÄ… bazÄ™ danych na
+format XBase, tworzyÄ‡ indeksy i wiele innych rzeczy...
 
 %prep
 %setup -q

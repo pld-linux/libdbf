@@ -1,5 +1,5 @@
 Summary:	A set of tools to manipulate xbase files
-Summary(pl.UTF-8):   Zestaw narzędzi do obróbki baz danych typu .dbf
+Summary(pl.UTF-8):	Zestaw narzędzi do obróbki baz danych typu .dbf
 Name:		libdbf
 Version:	1.5
 Release:	4
